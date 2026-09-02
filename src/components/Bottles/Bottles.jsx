@@ -1,7 +1,9 @@
-import React, { use } from 'react';
+
 import Bottle from '../Bottle/Bottle';
+
 import { useEffect,useState } from 'react';
 import './Bottles.css';
+import { addToLS } from '../../Utilies/localStorage';
 
 const Bottles = () => {
     const [bottles, setBottles] = useState([]);
@@ -16,6 +18,7 @@ const Bottles = () => {
     const handleAddToCart = (bottle) => {
         const newCart = [...cart, bottle];
         setCart(newCart);
+        addToLS(bottle.id);
     }
     return (
         <div>
