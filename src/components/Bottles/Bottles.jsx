@@ -4,6 +4,7 @@ import Bottle from '../Bottle/Bottle';
 import { useEffect, useState } from 'react';
 import './Bottles.css';
 import { addToLS, getStoredCart } from '../../Utilies/localStorage';
+import CartSe from '../CartSee/CartSe';
 
 const Bottles = () => {
     const [bottles, setBottles] = useState([]);
@@ -44,6 +45,8 @@ const Bottles = () => {
             <h1 style={{ backgroundColor: 'orange', color: "blue", width: '100%', height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '10px' }}>Welcome to Bottle shopping Mall</h1>
             <div>Available bottle: {bottles.length}</div>
             <div>AddToCart : {cart.length}</div>
+
+            <CartSe carts={cart}></CartSe>
 
             <div className='bottles'>
                 {
