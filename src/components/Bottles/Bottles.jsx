@@ -9,7 +9,7 @@ import CartSe from '../CartSee/CartSe';
 const Bottles = () => {
     const [bottles, setBottles] = useState([]);
     const [cart, setCart] = useState([]);
-
+    const availbleBottle=bottles.length -cart.length;
     useEffect(() => {
         fetch('bottlesAll.json')
             .then(res => res.json())
@@ -38,12 +38,18 @@ const Bottles = () => {
         const newCart = [...cart, bottle];
         setCart(newCart);
         addToLS(bottle.id);
+        
+        if(availbleBottle <1 ){
+            alert('not available Product') 
+            return;
+        }
+        
     }
 
     return (
         <div>
             <h1 style={{ backgroundColor: 'orange', color: "blue", width: '100%', height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '10px' }}>Welcome to Bottle shopping Mall</h1>
-            <div>Available bottle: {bottles.length}</div>
+            <div>Available bottle: {availbleBottle}</div>
             <div>AddToCart : {cart.length}</div>
 
             <CartSe carts={cart}></CartSe>
