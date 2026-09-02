@@ -1,7 +1,7 @@
 import React from 'react';
 import './Bottle.css';
 const Bottle = ({bottle,handleAddToCart}) => {
-    console.log(bottle);
+    // console.log(bottle);
     return (
         <div className="bottle">
             <h2>{bottle.name}</h2>
